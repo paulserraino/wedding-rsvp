@@ -1,0 +1,66 @@
+<section id="main-section" class="section">
+	<article>
+		<h1 id="main-title">Christine Dehoux ♥ Jesus Franco</h1>
+	</article>
+</section>
+<section class="section">
+	<article>
+		<div id="wedding-info">
+			<h2>The wedding ceremony</h2>
+			<ul class="info-list">
+				<li><strong>Location:</strong> Austin Tx</li>
+				<li><strong>Date:</strong> July 2015</li>
+				<li><strong>Time:</strong> 9:00am</li>
+			</ul>
+		</div>
+
+		<div id="map"></div>
+	</article>
+</section>
+<section class="section">
+	<article>
+		<div class="form-container">
+			<h2 class="form-title">RSVP</h2>
+			<form class="form" role="form" action="">
+				<div class="form-group">
+					<label for="first_name">First Name</label>
+					<input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name">
+				</div>
+				<div class="form-group">
+					<label for="last_name">Last Name</label>
+					<input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name">
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" name="email" id="email" class="form-control" placeholder="Email">
+				</div>
+				<div class="form-group center">
+					<button id="rsvp_yes" class="btn">Yes</button>
+					<button id="rsvp_no" class="btn">No</button>
+				</div>
+			</form>
+		</div>
+	</article>	
+</section>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+function initialize() {
+  var myLatlng = new google.maps.LatLng(30.25, -97.75);
+  var mapOptions = {
+    scrollwheel: false,
+    zoom: 11,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+ </script>

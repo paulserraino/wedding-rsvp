@@ -1,0 +1,47 @@
+body, h1, h2, h3, ul, ol {
+	margin: 0;
+	padding: 0;
+}
+
+#main-section {
+	text-align: center;
+	color: coral;
+	background-image: url("/images/sample1.jpg");
+}
+
+#main-title {
+	position: relative;
+	top: 60px;
+}
+
+#map {
+	margin: 0 auto;
+	max-width: 700px;
+	height: 300px;
+}
+
+.section {
+	height: 600px;
+}
+
+.form-container {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.center {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.btn {
+	font-size: 20px;
+}
+
+#rsvp_yes {
+	background-color: lightgreen;
+}
+
+#rsvp_no {
+	background-color: coral;
+}
