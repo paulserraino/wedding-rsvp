@@ -12,4 +12,5 @@ gem 'activerecord'
 group :development do
 	gem 'sqlite3'
 	gem 'rspec'
+	gem 'database_cleaner'
 end
