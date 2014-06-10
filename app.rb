@@ -8,7 +8,8 @@ require 'active_record'
 #ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 set :database, {adapter: "sqlite3", database: "foo.sqlite3"}
 
-require File.dirname(__FILE__) + '/models/rsvp.rb'
+require File.join(File.dirname(__FILE__), '/models/admin.rb')
+require File.join(File.dirname(__FILE__), '/models/rsvp.rb')
 
 class App < Sinatra::Base
 	enable :sessions

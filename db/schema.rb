@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610193715) do
+ActiveRecord::Schema.define(version: 20140610202445) do
 
   create_table "admins", force: true do |t|
     t.string "username"
     t.string "password"
+  end
+
+  create_table "rsvps", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
