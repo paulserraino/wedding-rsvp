@@ -28,4 +28,26 @@ class App < Sinatra::Base
 		
 	end
 
+	get "/rsvp" do
+		content_type :json
+		@rspv = RSPV.all
+
+		status 200
+		@rsvp.to_json
+	end
+
+	post "/rsvp/new" do
+		content_type :json
+		@rspv = RSPV.new(first_name: params[:first_name], 
+			last_name: params[:last_name], email: params[:email])
+
+		if @rspv.save
+			status 200
+			{code: 200, message: "rsvp successfully saved!"}.to_json
+		else
+			status 404
+			{code: 404, message: @rsvp.errors }.to_json
+		end
+	end
+
 end
