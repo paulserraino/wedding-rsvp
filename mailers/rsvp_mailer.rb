@@ -14,7 +14,7 @@ class RSVPMailer
 		    :port                 => '587',
 		    :enable_starttls_auto => true,
 		    :user_name            => 'pserraino99@gmail.com',
-		    :password             => 'ochemistry',
+		    :password             => '',
 		    :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
 		    :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
 		})
