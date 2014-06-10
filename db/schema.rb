@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610202445) do
+ActiveRecord::Schema.define(version: 20140610204445) do
 
   create_table "admins", force: true do |t|
     t.string "username"
@@ -25,5 +25,7 @@ ActiveRecord::Schema.define(version: 20140610202445) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "rsvps", ["email"], name: "index_rsvps_on_email", unique: true
 
 end
