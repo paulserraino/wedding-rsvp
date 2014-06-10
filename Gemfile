@@ -1,9 +1,10 @@
 source "https://rubygems.org"
-ruby "2.0.0"
 
 gem 'sinatra'
 gem 'pony'
 gem 'rake'
+gem 'rack-contrib' 
+gem 'rack-test'
 gem "sinatra-activerecord"
 gem 'pg'
 gem 'activerecord'
