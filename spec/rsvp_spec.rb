@@ -2,7 +2,10 @@ require 'spec_helper'
 require File.join(File.dirname(__FILE__), "../models/rsvp.rb")
 
 describe Rsvp do
-	before { @rsvp = Rsvp.new(first_name: "paul", last_name: "joe", email: "paul@test.com")}	
+	before do
+		@rsvp = Rsvp.new(first_name: "paul", last_name: "joe", 
+			email: "paul@test.com", reservation: true)
+	end
 
 	subject { @rsvp }
 
@@ -58,5 +61,15 @@ describe Rsvp do
 	      end
 	    end
 	  end
+
+	describe "when reservation is blank" do
+		before { @rsvp.reservation = "" }
+		it { should_not be_valid}
+	end
+
+	describe "when reservation is nil" do
+		before { @rsvp.reservation = nil }
+		it { should_not be_valid}
+	end
 
 end

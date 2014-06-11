@@ -24,8 +24,7 @@ class App < Sinatra::Base
 		erb :admin_login
 	end
 
-	post "/admin" do
-		
+	post "/admin" do	
 	end
 
 
