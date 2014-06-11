@@ -63,7 +63,7 @@ describe Rsvp do
 	  end
 
 	describe "when reservation is blank" do
-		before { @rsvp.reservation = "" }
+		before { @rsvp.reservation = " " }
 		it { should_not be_valid}
 	end
 
