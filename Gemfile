@@ -8,6 +8,7 @@ gem 'rack-test'
 gem "sinatra-activerecord"
 gem 'pg'
 gem 'activerecord'
+gem 'google-api-client'
 
 group :development do
 	gem 'sqlite3'
