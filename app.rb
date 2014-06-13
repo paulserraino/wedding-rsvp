@@ -47,5 +47,5 @@ class App < Sinatra::Base
 			status 404
 			{code: 404, message: @rsvp.errors }.to_json
 		end
-	ends
+	end
 end
