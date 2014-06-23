@@ -23,7 +23,7 @@
 	<article>
 		<div class="form-container">
 			<h2 class="form-title">RSVP</h2>
-			<form id="rsvp-form" class="form" role="form" action="">
+			<form id="rsvp-form" class="form" role="form" method="POST">
 				<div class="form-group">
 					<label for="first_name">First Name</label>
 					<input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name">
@@ -36,9 +36,10 @@
 					<label for="email">Email</label>
 					<input type="text" name="email" id="email" class="form-control" placeholder="Email">
 				</div>
+				<input type="hidden" name="reservation">
 				<div class="form-group center">
-					<button id="rsvp_yes" class="btn">Yes</button>
-					<button id="rsvp_no" class="btn">No</button>
+					<button type="button" id="rsvp_yes" class="rsvp-btn btn" data="true">Yes</button>
+					<button type="button" id="rsvp_no" class="rsvp-btn btn" data="false">No</button>
 				</div>
 			</form>
 		</div>

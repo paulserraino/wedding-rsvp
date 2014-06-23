@@ -1,2 +1,18 @@
-<a href="/logout">logout</a>
-<h1>Admin</h1>
+<div class="container">
+	<a href="/logout">logout</a>
+	<h1>Admin</h1>
+</div>
+
+<script>
+(function ($) {
+	$.ajax({
+		type: "GET",
+		url: "/rsvp",
+		dataType: "JSONP"
+	}).done(function (data) {
+		console.log("data ", data);
+	}).fail(function (err) {
+		console.log("error fetching rsvp ", err);
+	});
+})(jQuery);
+</script>

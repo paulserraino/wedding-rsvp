@@ -53,7 +53,8 @@ class App < Sinatra::Base
 	post "/rsvp/new" do
 		content_type :json
 		@rspv = Rsvp.new(first_name: params[:first_name], 
-			last_name: params[:last_name], email: params[:email])
+			last_name: params[:last_name], email: params[:email], 
+			reservation: params[:reservation])
 
 		if @rspv.save
 			status 200
@@ -61,7 +62,7 @@ class App < Sinatra::Base
 			{code: 200, message: "rsvp successfully saved!"}.to_json
 		else
 			status 404
-			{code: 404, message: @rsvp.errors }.to_json
+			{code: 404, message: "error submitting rsvp" }.to_json
 		end
 	end
 end
