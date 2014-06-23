@@ -25,9 +25,9 @@
 			});
 		},
 		randomColor: function () {
-			var rc = Math.floor(Math.random() * ((colors.length-1) + 1));
+			var rc = Math.floor(Math.random() * ((this.colors.length-1) + 1));
 			return this.colors[rc];
-		}
+		},
 		setHeartColor: function (color) {
 			$("span.heart").css("color", color);
 		},
