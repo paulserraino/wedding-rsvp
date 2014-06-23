@@ -4,7 +4,7 @@ require 'sinatra/activerecord'
 require File.join(File.dirname(__FILE__), "/mailers/rsvp_mailer.rb")
 
 #ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
-#set :database, {adapter: "sqlite3", database: "foo.sqlite3"}
+set :database, {adapter: "sqlite3", database: "foo.sqlite3"}
 #ActiveRecord::Base.establish_connection adapter: "sqlite3", database: "foo.sqlite3"
 
 require File.join(File.dirname(__FILE__), '/models/admin.rb')
@@ -21,10 +21,26 @@ class App < Sinatra::Base
 	end
 
 	get "/admin" do
-		erb :admin_login
+		admin = Admin.all
+		if session[:admin] != admin[0][:username]
+			erb :admin_login
+		else
+			erb :admin
+		end
 	end
 
-	post "/admin" do	
+	post "/admin" do
+		admin = Admin.all
+		if params[:username] == admin[0][:username] && params[:password] == admin[0][:password]
+	 		session[:admin] = params[:username]
+		end
+
+	 	redirect "/admin"
+	end
+
+	get "/logout" do
+		session.clear
+		redirect '/admin'
 	end
 
 
