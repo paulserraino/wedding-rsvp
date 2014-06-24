@@ -72,4 +72,9 @@ describe Rsvp do
 		it { should_not be_valid}
 	end
 
+	describe "when reservation is false" do
+		before { @rsvp.reservation = false }
+		it { should_not be_valid }
+	end
+
 end
