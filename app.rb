@@ -52,14 +52,20 @@ class App < Sinatra::Base
 
 	post "/rsvp/new" do
 		content_type :json
+		if params[:reservation] == "true"
+			resrv = true
+		else
+			resrv = false
+		end
 		rsvp = Rsvp.new(
 			first_name:  params[:first_name], 
 			last_name: 	 params[:last_name], 
 			email: 		 params[:email], 
-			reservation: params[:reservation]
+			reservation: resrv
 			)
 
 		puts "================================="
+		puts "reservation #{params[:reservation]}"
 
 		if rsvp.save
 			status 200
