@@ -7,10 +7,14 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
+ul, ol {
+	list-style: none;
+}
+
 #main-section {
 	text-align: right;
-	background-color: #333;
-	background-image: url("/images/sample1.jpg");
+	background-color: #eee;
+	background-image: url("/images/jc1.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
@@ -21,12 +25,19 @@ body {
 
 #main-title {
 	position: relative;
-	color: #FFF;
+	color: #252525;
 	-webkit-transform: translateY(400px);
 	-moz-transform: translateY(400px);
 	-ms-transform: translateY(400px);
 	-o-transform: translateY(400px);
 	transform: translateY(400px);
+}
+
+.fit-content {
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
 }
 
 #map {
