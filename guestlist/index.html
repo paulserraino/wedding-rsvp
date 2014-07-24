@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>♥ Guest List ♥</title>
+</head>
+<body>
+
+	<div class="container">
+		
+		<h1>Guest List</h1>
+		<table class="table table-responsive">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Email</td>
+					<td>RSVP</td>
+				</tr>		
+			</thead>
+			<tbody id="guestlist"></tbody>
+		</table>
+	</div>
+
+	<script type="text/x-template" id="guestlist-tmpl">
+	<% guests.forEach(function (g) { %>
+		<tr>
+			<td></td>
+			<td>g.email</td>
+			<td>g.rsvp</td>	
+		</tr>
+	<% }); %>
+	</script>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+	<script>
+	(function ($) {
+
+	})(jQuery);
+	</script>
+</body>
+</html>
