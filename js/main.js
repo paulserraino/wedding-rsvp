@@ -4,7 +4,11 @@
 		colors: ["#F22613", "#19B5FE", "deeppink", "fuchsia", "lightgreen", "lime", 
 		"yellow", "springgreen", "deepskyblue", "orangered"],
 		images: ["/images/sample1.jpg", "/images/sample2.jpg"],
+		this.dropbox: null,
 		init: function () {
+			
+			this.dropbox = new Dropbox.Client({key: "r0zz4zwd7w1h358"});
+
 			// random heart color when page loads
 			this.setHeartColor(this.randomColor());
 			this.attachRSVPBtn();

@@ -4,6 +4,8 @@ moveFilesToSite () {
 	cp -r css _site
 	cp -r images _site
 	cp -r js _site
+	cp -r thankyou _site
+	cp -r guestlist _site
 	cp index.html _site
 }
 
