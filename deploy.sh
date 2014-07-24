@@ -7,8 +7,11 @@ moveFilesToSite () {
 	cp index.html _site
 }
 
-moveFilesToSite
+deployToGHPages () {
+	`git add --all`
+	`git commit -m "deploy"`
+	`git subtree push --prefix _site origin gh-pages`
+}
 
-#`git add --all`
-#`git commit -m "deploy"`
-#`git subtree push --prefix _site origin gh-pages`
+moveFilesToSite
+deployToGHPages
