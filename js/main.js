@@ -28,20 +28,23 @@
 				e.preventDefault();
 
 				if(self.validateForm($(this).serialize())) {
-					console.log("form is valid")
+				    console.log("form is valid")
+
+                                    var newRSVP = self.paramsToJSON($(this).serialize());
+
+                                    newRSVP = JSON.stringify(newRSVP);
+                    
+                                    $.ajax({
+                                      type: "POST",
+                                      url: "https://jesuswedding.iriscouch.com/weddingrsvp",
+                                      contentType: "application/json",
+                                      data: newRSVP
+                                    }).done(function(data) {
+                                            
+                                      console.log('works ');
+
+                                    });
 				}
-
-		
-				$.ajax({
-				  type: "POST",
-				  url: "https://jesuswedding.iriscouch.com/weddingrsvp",
-				  contentType: "application/json",
-				  data: '{ "email": "test5@asdf.com" }'
-				}).done(function(data) {
-					
-				  console.log('works ');
-
-				});
 
 			});
 
@@ -85,7 +88,17 @@
 			$("span.heart").on("click", function (e) {
 				e.preventDefault();
 			});
-		}
+		},
+                paramsToJSON(params) {
+                  var pairs = params.split("&"),
+                      kv = null, obj = {};
+                  for (var i=0; i < pairs.length; i++) {
+                    kv = pairs[i].split("=");
+                    obj[kv[0]] = kv[1];
+                  }
+
+                  return obj;
+                }
 
 	}
 
