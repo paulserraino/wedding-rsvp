@@ -1,13 +1,11 @@
 (function ($) {
 
 	var RSVPUI = {
-		colors: ["#F22613", "#19B5FE", "deeppink", "fuchsia", "lightgreen", "lime", 
-		"yellow", "springgreen", "deepskyblue", "orangered"],
+		colors: ["#F22613", "#19B5FE", "deeppink", 
+		"fuchsia", "lightgreen", "lime", "yellow", "springgreen", 
+		"deepskyblue", "orangered"],
 		images: ["/images/sample1.jpg", "/images/sample2.jpg"],
-		this.dropbox: null,
 		init: function () {
-			
-			this.dropbox = new Dropbox.Client({key: "r0zz4zwd7w1h358"});
 
 			// random heart color when page loads
 			this.setHeartColor(this.randomColor());
@@ -35,13 +33,14 @@
 
 		
 				$.ajax({
-					type: "POST",
-					url: "/rsvp/new",
-					data: $(this).serialize()
-				}).done(function (data) {
+				  type: "POST",
+				  url: "https://jesuswedding.iriscouch.com/weddingrsvp",
+				  contentType: "application/json",
+				  data: '{ "email": "test5@asdf.com" }'
+				}).done(function(data) {
+					
+				  console.log('works ');
 
-				}).fail(function (err) {
-					console.log("Failed to rsvp ", err);
 				});
 
 			});
