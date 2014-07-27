@@ -28,26 +28,35 @@
 				e.preventDefault();
 
 				if(self.validateForm($(this).serialize())) {
-					console.log("form is valid")
+
+                    var newRSVP = self.paramsToJSON($(this).serialize());
+
+
+                    self.getDb().done(function (data) {
+                    	if (typeof data === "string") data = JSON.parse(data);
+
+                    	// check for duplicate records
+                    	var dups = _.filter(data.rows, function (r) {
+                    		return r.doc.email === newRSVP.email;
+                    	});
+
+
+                    	if (dups.length <= 0) {
+                    		newRSVP = JSON.stringify(newRSVP);
+                    		self.addRSVP(newRSVP).done(function (data) {
+                    			window.location.href = "/thankyou/";
+                    		});
+                    	} else {
+                    		window.location.href = "/thankyou/";
+                    	}
+                    });
+                    
 				}
-
-		
-				$.ajax({
-				  type: "POST",
-				  url: "https://jesuswedding.iriscouch.com/weddingrsvp",
-				  contentType: "application/json",
-				  data: '{ "email": "test5@asdf.com" }'
-				}).done(function(data) {
-					
-				  console.log('works ');
-
-				});
 
 			});
 
 		},
 		validateForm: function (data) {
-			console.log(data);
 			var fields = data.split("&");
 			var valid = true;
 			var kv;
@@ -80,7 +89,35 @@
 		},
 		setHeartColor: function (color) {
 			$("span.heart").css("color", color);
-		}
+		},
+		imageSlider: function () {
+			$("span.heart").on("click", function (e) {
+				e.preventDefault();
+			});
+		},
+        paramsToJSON: function(params) {
+          var pairs = params.split("&"),
+              kv = null, obj = {};
+          for (var i=0; i < pairs.length; i++) {
+            kv = pairs[i].split("=");
+            obj[kv[0]] = kv[1];
+          }
+
+          return obj;
+        },
+        getDb: function () {
+        	return $.ajax({
+        		url: "https://jesuswedding.iriscouch.com/weddingrsvp/_all_docs?include_docs=true"
+        	});
+        },
+        addRSVP: function (record) {
+        	return $.ajax({
+        		type: "POST",
+	            url: "https://jesuswedding.iriscouch.com/weddingrsvp",
+	            contentType: "application/json",
+	            data: record
+        	});
+        }
 
 	}
 
