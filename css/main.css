@@ -14,7 +14,7 @@ ul, ol {
 #main-section {
 	text-align: right;
 	background-color: #eee;
-	background-image: url("../images/jc1.jpg");
+	background-image: url("../images/imagemap.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
@@ -44,6 +44,10 @@ ul, ol {
 	margin: 0 auto;
 	max-width: 700px;
 	height: 300px;
+}
+
+#wedding-info {
+	padding: 18px 0px 10px 0px;
 }
 
 .section {
@@ -88,3 +92,9 @@ ul, ol {
 
 #rsvp_yes { background-color: lightgreen; }
 #rsvp_no { background-color: coral; }
+
+@media (max-width: 700px) {
+	#main-section {
+		background-image: url("../images/jc1.jpg");
+	}
+}
