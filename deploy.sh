@@ -13,7 +13,12 @@ deployToGHPages () {
 	`git add --all`
 	`git commit -m "deploy"`
 	`git subtree push --prefix _site origin gh-pages`
+
+	#if this breaks, then try
+	# git reset --hard gh-pages/head
+	# git push --force origin gh-pages
 }
+
 
 moveFilesToSite
 deployToGHPages
