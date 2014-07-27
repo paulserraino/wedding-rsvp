@@ -80,11 +80,6 @@
 		},
 		setHeartColor: function (color) {
 			$("span.heart").css("color", color);
-		},
-		imageSlider: function () {
-			$("span.heart").on("click", function (e) {
-				e.preventDefault();
-			});
 		}
 
 	}
