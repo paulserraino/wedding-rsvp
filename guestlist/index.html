@@ -36,7 +36,25 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 	<script>
 	(function ($) {
-		//https://jesuswedding.iriscouch.com/weddingrsvp/_all_docs?include_docs=true
+	//https://jesuswedding.iriscouch.com/weddingrsvp/_all_docs?include_docs=true
+
+          function getDB() {
+            return $.ajax({
+              url: "https://jesuswedding.iriscouch.com/weddingrsvp/_all_docs?include_docs=true",
+              type: "GET
+            });
+          }
+
+          $(document).ready(function () {
+
+            var tmpl = null;
+            getDB().done(function (data) {
+               tmpl = _.template($("#guestlist-tmpl").html());
+               $("#guestlist").html(tmpl{ guests: data.docs });
+            });
+
+          });
+
 	})(jQuery);
 	</script>
 </body>
