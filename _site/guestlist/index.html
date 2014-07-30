@@ -4,25 +4,36 @@
 	<meta charset="UTF-8">
 	<title>♥ Guest List ♥</title>
 	<link rel="stylesheet" href="../css/bootstrap.css">
+<<<<<<< HEAD
 	<link rel="stylesheet" href="../css/main.css">
+=======
+>>>>>>> 1fd58052b4f6eb1cd93c1cb996dbdfbc9da7ea08
 </head>
 <body>
 
 	<div class="container">
 		
 		<h1>Guest List</h1>
+<<<<<<< HEAD
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<td>#</td>
 					<td>First Name</td>
 					<td>Last Name</td>
+=======
+		<table class="table table-responsive">
+			<thead>
+				<tr>
+					<td>#</td>
+>>>>>>> 1fd58052b4f6eb1cd93c1cb996dbdfbc9da7ea08
 					<td>Email</td>
 					<td>RSVP</td>
 				</tr>		
 			</thead>
 			<tbody id="guestlist"></tbody>
 		</table>
+<<<<<<< HEAD
 		<img class="loading" src="../images/loading.gif" alt="Loading...">
 	</div>
 
@@ -40,6 +51,16 @@
 				<span class="no">no</span>
 			<% } %>
 			</td>	
+=======
+	</div>
+
+	<script type="text/x-template" id="guestlist-tmpl">
+	<% guests.forEach(function (g) { %>
+		<tr>
+			<td></td>
+			<td>g.email</td>
+			<td>g.rsvp</td>	
+>>>>>>> 1fd58052b4f6eb1cd93c1cb996dbdfbc9da7ea08
 		</tr>
 	<% }); %>
 	</script>
@@ -48,6 +69,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 	<script>
 	(function ($) {
+<<<<<<< HEAD
 	//https://jesuswedding.iriscouch.com/weddingrsvp/_all_docs?include_docs=true
 
           function getDB() {
@@ -73,3 +95,10 @@
 	</script>
 </body>
 </html>
+=======
+		//https://jesuswedding.iriscouch.com/weddingrsvp/_all_docs?include_docs=true
+	})(jQuery);
+	</script>
+</body>
+</html>
+>>>>>>> 1fd58052b4f6eb1cd93c1cb996dbdfbc9da7ea08
