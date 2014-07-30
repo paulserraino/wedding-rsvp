@@ -1,0 +1,100 @@
+body, h1, h2, h3, ul, ol {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+#main-section {
+	text-align: right;
+	background-color: #eee;
+	background-image: url("../images/imagemap.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#main-title {
+	position: relative;
+	color: #252525;
+	-webkit-transform: translateY(400px);
+	-moz-transform: translateY(400px);
+	-ms-transform: translateY(400px);
+	-o-transform: translateY(400px);
+	transform: translateY(400px);
+}
+
+.fit-content {
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+
+#map {
+	margin: 0 auto;
+	max-width: 700px;
+	height: 300px;
+}
+
+#wedding-info {
+	padding: 18px 0px 10px 0px;
+}
+
+.section {
+	height: 500px;
+	border-bottom: 1px solid #EEEEEE;
+}
+
+.section:nth-child(3) {
+	background-color: #DADFE1;
+}
+
+.heart {
+	cursor: pointer;
+}
+
+.form-container {
+	max-width: 400px;
+	margin: 0 auto;
+	-webkit-transform: translateY(50px);
+	-moz-transform: translateY(50px);
+	-ms-transform: translateY(50px);
+	-o-transform: translateY(50px);
+	transform: translateY(50px);
+}
+
+.center {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.yes { color: lightgreen; }
+.no { color: coral; }
+
+.bold { font-weight: bold; }
+
+.btn { font-size: 20px; }
+
+.table {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+#rsvp_yes { background-color: lightgreen; }
+#rsvp_no { background-color: coral; }
+
+@media (max-width: 700px) {
+	#main-section {
+		background-image: url("../images/jc1.jpg");
+	}
+}
