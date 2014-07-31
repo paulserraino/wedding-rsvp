@@ -107,13 +107,13 @@
         },
         getDb: function () {
         	return $.ajax({
-        		url: "https://jesuswedding.iriscouch.com/weddingrsvp/_all_docs?include_docs=true"
+        		url: "https://paulserraino.cloudant.com/jesuswedding/_all_docs?include_docs=true"
         	});
         },
         addRSVP: function (record) {
         	return $.ajax({
         		type: "POST",
-	            url: "https://jesuswedding.iriscouch.com/weddingrsvp",
+	            url: "https://paulserraino.cloudant.com/jesuswedding",
 	            contentType: "application/json",
 	            data: record
         	});
