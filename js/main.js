@@ -107,7 +107,8 @@
         },
         getDb: function () {
         	return $.ajax({
-        		url: "https://paulserraino.cloudant.com/jesuswedding/_all_docs?include_docs=true"
+        		url: "https://paulserraino.cloudant.com/jesuswedding/_all_docs?include_docs=true",
+        		dataType: 'jsonp'
         	});
         },
         addRSVP: function (record) {
