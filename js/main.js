@@ -39,9 +39,12 @@
                     	var dups = _.filter(data.rows, function (r) {
                     		return r.doc.email === newRSVP.email;
                     	});
+                    	
+                    	console.log('dups: ', dups);
 
 
                     	if (dups.length <= 0) {
+                    		console.log('saving ', newRSVP);
                     		newRSVP = JSON.stringify(newRSVP);
                     		self.addRSVP(newRSVP).done(function (data) {
                     			window.location.href = "/thankyou/";
