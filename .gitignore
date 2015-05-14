@@ -3,3 +3,4 @@ foo.sqlite3
 Gemfile.lock
 .dropbox
 images/engagement
+npm-debug.log
