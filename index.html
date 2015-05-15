@@ -2,31 +2,30 @@
 <html>
 <head>
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans|Oleo+Script|Lobster|Raleway|Dancing+Script|Playball|Satisfy|Pinyon+Script' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<meta charset="UTF-8">
-	<title>Christine ♥ Jesus Franco</title>
+	<title>Christine &amp; Jesus Franco</title>
 </head>
 <body>
 
 <div class="fit-content">
 	<section id="main-section" class="section">
-		<article>
-			
+		<article class="banner">
+			<h1 class="main-title">Christine &amp; Jesus</h1>
+			<p class="main-text">July 11, 2015 · Austin, Texas</p>
 		</article>
 	</section>
 </div>
 <section class="section">
 	<article>
 		<div class="center">
-			<h1 id="main-title">Christine Dehoux<span class="heart">♥</span>Jesus Franco</h1>
 			<div id="wedding-info">
 				<h2>Wedding Ceremony</h2>
 				<ul class="info-list">
 					<li><span class="bold">Location:</span> Villa Antonia, Austin TX</li>
 					<li><span class="bold">Date:</span> July 11 2015</li>
-					<li><span class="bold">Time:</span> 9:00am</li>
+					<li><span class="bold">Time:</span> 5:00pm</li>
 				</ul>
 			</div>
 
@@ -34,27 +33,45 @@
 		</div>
 	</article>
 </section>
-<section class="section">
+<section id="rsvp-section" class="section">
 	<article>
 		<div class="form-container">
 			<h2 class="form-title">RSVP</h2>
 			<form id="rsvp-form" class="form" role="form" method="POST">
 				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" name="email" id="email" class="form-control">
+				</div>
+				<div class="form-group">
 					<label for="first_name">First Name</label>
-					<input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name">
+					<input type="text" name="first_name" id="first_name" class="form-control">
 				</div>
 				<div class="form-group">
 					<label for="last_name">Last Name</label>
-					<input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name">
+					<input type="text" name="last_name" id="last_name" class="form-control">
 				</div>
 				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="text" name="email" id="email" class="form-control" placeholder="Email">
+					<label for="reservation">Will you be there?*</label>
+					<label>
+						<input type="radio" id="reservation" name="reservation" value="yes">
+						Yes
+					</label>
+					<label>
+						<input type="radio" id="reservation" name="reservation" value="no">
+						No
+					</label>
 				</div>
-				<input type="hidden" name="reservation">
+				<div class="form-group">
+					<label for="plus_one">Will you be bring a +1?
+						<input type="checkbox" name="plus_one" id="plus_one"><span>Yes</span>
+					</label>
+				</div>
+				<div class="form-group">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" class="form-control" cols="30" rows="10"></textarea>
+				</div>
 				<div class="form-group center">
-					<button type="button" id="rsvp_yes" class="rsvp-btn btn" data="true">Yes</button>
-					<button type="button" id="rsvp_no" class="rsvp-btn btn" data="false">No</button>
+					<button class="submit-btn btn">SUBMIT</button>
 				</div>
 			</form>
 		</div>
