@@ -1,33 +1,33 @@
 html, body {
-	height: 100%;
-	min-height: 100%;
+  height: 100%;
+  min-height: 100%;
 }
 
 * {
-	font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-	color: rgba(8,0,26,.9);
-	font-size: 18px;
-	line-height: 1em;
+  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: rgba(8,0,26,.9);
+  font-size: 18px;
+  line-height: 1em;
   text-transform: none;
 }
   
 
 body, h1, h2, h3, ul, ol {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, h4, h5 {
-	font-weight: 100;
-	font-size: 40px;
+  font-weight: 100;
+  font-size: 40px;
 }
 
 div, p, span {
-	font-weight: 300;
+  font-weight: 300;
 }
 
 ul, ol {
-	list-style: none;
+  list-style: none;
 }
 
 ::selection {
@@ -40,26 +40,26 @@ ul, ol {
 }
 
 #main-section {
-	text-align: right;
-	background-color: #eee;
-	background-image: url("../images/imagemap2.png");
-	background-position: center;
-	background-repeat: no-repeat;
-	-webkit-background-size: cover;
+  text-align: right;
+  background-color: #eee;
+  background-image: url("../images/imagemap2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
 .main-title {
-	padding-top: 40px;
-	position: relative;
-	font-size: 90px;
-	color: #fff;
+  padding-top: 40px;
+  position: relative;
+  font-size: 90px;
+  color: #fff;
 }
 .main-text {
-	font-size: 30px;
-	color: #f9b862;
+  font-size: 30px;
+  color: #f9b862;
 }
 
 .banner {
@@ -70,57 +70,57 @@ ul, ol {
 }
 
 .fit-content {
-	padding: 0;
-	margin: 0 auto;
-	width: 100%;
-	max-width: 1800px;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1800px;
 }
 
 #map {
-	margin: 0 auto;
-	max-width: 700px;
-	height: 300px;
+  margin: 0 auto;
+  max-width: 700px;
+  height: 300px;
 }
 
 #wedding-info {
-	padding: 18px 0px 10px 0px;
+  padding: 18px 0px 10px 0px;
 }
 
 .section {
-	height: 500px;
-	border-bottom: 1px solid #EEEEEE;
+  height: 500px;
+  border-bottom: 1px solid #EEEEEE;
 }
 
 .section:nth-child(3) {
-	background-color: #DDDDDD;
-	height: 700px;
+  background-color: #DDDDDD;
+  height: 700px;
 }
 
 .center {
-	margin: 0 auto;
-	text-align: center;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .table {
-	max-width: 800px;
-	margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /**
-*	FORM
+* FORM
 */
 .form-container {
-	max-width: 530px;
-	margin: 0 auto;
-	-webkit-transform: translateY(50px);
-	-moz-transform: translateY(50px);
-	-ms-transform: translateY(50px);
-	-o-transform: translateY(50px);
-	transform: translateY(50px);
+  max-width: 530px;
+  margin: 0 auto;
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  -o-transform: translateY(50px);
+  transform: translateY(50px);
 }
 
 .form-control {
-	width: 100%;
+  width: 100%;
   padding: 12px;
   margin: 6px 0 4px;
   border: 1px solid #ccc;
@@ -133,7 +133,7 @@ ul, ol {
 }
 
 .form-group {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 .submit-btn {
@@ -152,7 +152,7 @@ ul, ol {
   -webkit-appearance: none;
 }
 @media (max-width: 700px) {
-	#main-section {
-		background-image: url("../images/jc1.jpg");
-	}
+  #main-section {
+    background-image: url("../images/jc1.jpg");
+  }
 }

@@ -1,81 +1,81 @@
 <!doctype html>
 <html>
 <head>
-	<link href='http://fonts.googleapis.com/css?family=PT+Sans|Oleo+Script|Lobster|Raleway|Dancing+Script|Playball|Satisfy|Pinyon+Script' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/main.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	<meta charset="UTF-8">
-	<title>Christine &amp; Jesus Franco</title>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans|Oleo+Script|Lobster|Raleway|Dancing+Script|Playball|Satisfy|Pinyon+Script' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Christine &amp; Jesus Franco</title>
 </head>
 <body>
 
 <div class="fit-content">
-	<section id="main-section" class="section">
-		<article class="banner">
-			<h1 class="main-title">Christine &amp; Jesus</h1>
-			<p class="main-text">July 11, 2015 · Austin, Texas</p>
-		</article>
-	</section>
+  <section id="main-section" class="section">
+    <article class="banner">
+      <h1 class="main-title">Christine &amp; Jesus</h1>
+      <p class="main-text">July 11, 2015 · Austin, Texas</p>
+    </article>
+  </section>
 </div>
 <section class="section">
-	<article>
-		<div class="center">
-			<div id="wedding-info">
-				<h2>Wedding Ceremony</h2>
-				<ul class="info-list">
-					<li><span class="bold">Location:</span> Villa Antonia, Austin TX</li>
-					<li><span class="bold">Date:</span> July 11 2015</li>
-					<li><span class="bold">Time:</span> 5:00pm</li>
-				</ul>
-			</div>
+  <article>
+    <div class="center">
+      <div id="wedding-info">
+        <h2>Wedding Ceremony</h2>
+        <ul class="info-list">
+          <li><span class="bold">Location:</span> Villa Antonia, Austin TX</li>
+          <li><span class="bold">Date:</span> July 11 2015</li>
+          <li><span class="bold">Time:</span> 5:00pm</li>
+        </ul>
+      </div>
 
-			<div id="map"></div>
-		</div>
-	</article>
+      <div id="map"></div>
+    </div>
+  </article>
 </section>
 <section id="rsvp-section" class="section">
-	<article>
-		<div class="form-container">
-			<h2 class="form-title">RSVP</h2>
-			<form id="rsvp-form" class="form" role="form" method="POST">
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="text" name="email" id="email" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="first_name">First Name</label>
-					<input type="text" name="first_name" id="first_name" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="last_name">Last Name</label>
-					<input type="text" name="last_name" id="last_name" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="reservation">Will you be there?*</label>
-					<label>
-						<input type="radio" id="reservation" name="reservation" value="yes">
-						Yes
-					</label>
-					<label>
-						<input type="radio" id="reservation" name="reservation" value="no">
-						No
-					</label>
-				</div>
-				<div class="form-group">
-					<label for="plus_one">Will you be bring a +1?
-						<input type="checkbox" name="plus_one" id="plus_one"><span>Yes</span>
-					</label>
-				</div>
-				<div class="form-group">
-					<label for="message">Message</label>
-					<textarea name="message" id="message" class="form-control" cols="30" rows="10"></textarea>
-				</div>
-				<div class="form-group center">
-					<button class="submit-btn btn">SUBMIT</button>
-				</div>
-			</form>
-		</div>
-	</article>	
+  <article>
+    <div class="form-container">
+      <h2 class="form-title">RSVP</h2>
+      <form id="rsvp-form" class="form" role="form" method="POST">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" name="first_name" id="first_name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" name="last_name" id="last_name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="reservation">Will you be there?*</label>
+          <label>
+            <input type="radio" id="reservation" name="reservation" value="yes">
+            Yes
+          </label>
+          <label>
+            <input type="radio" id="reservation" name="reservation" value="no">
+            No
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="plus_one">Will you be bring a +1?
+            <input type="checkbox" name="plus_one" id="plus_one"><span>Yes</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-group center">
+          <button class="submit-btn btn">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </article>  
 </section>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
@@ -88,12 +88,12 @@ function initialize() {
     zoom: 12,
     center: myLatlng,
     styles: [{featureType:"administrative",stylers:[{visibility:"on"}]},
-    	
-    	{featureType:"road.highway",elementType:"geometry",stylers:[{visibility:"on"}]},
-    	{featureType:"road.arterial",stylers:[{visibility:"off"}]},
-    	{featureType:"water",stylers:[{color:"#5f94ff"},{lightness:26},{gamma:5.86}]},{},
-    	{featureType:"road.highway",stylers:[{weight:0.6},{saturation:-85},{lightness:61}]},
-    	{featureType:"road"},{},{featureType:"landscape",stylers:[{hue:"#0066ff"},{saturation:74},{lightness:100}]}]
+      
+      {featureType:"road.highway",elementType:"geometry",stylers:[{visibility:"on"}]},
+      {featureType:"road.arterial",stylers:[{visibility:"off"}]},
+      {featureType:"water",stylers:[{color:"#5f94ff"},{lightness:26},{gamma:5.86}]},{},
+      {featureType:"road.highway",stylers:[{weight:0.6},{saturation:-85},{lightness:61}]},
+      {featureType:"road"},{},{featureType:"landscape",stylers:[{hue:"#0066ff"},{saturation:74},{lightness:100}]}]
   }
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
@@ -108,8 +108,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
  </script>
 
- 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-	<script src="js/main.js"></script>	
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+  <script src="js/main.js"></script>  
 </body>
 </html>
