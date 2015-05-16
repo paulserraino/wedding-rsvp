@@ -9,14 +9,14 @@ gulp.task('less', function () {
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
-    .pipe(gulp.dest('./build/css'))
+    .pipe(gulp.dest('./public/build/css'))
     .pipe(reload({ stream: true }))
 });
 
 var browserify = require('gulp-browserify');
  
 gulp.task('browserify', function() {
-    return gulp.src('./js/main.js')
+    return gulp.src('./public/js/main.js')
         .pipe(browserify())
         .pipe(gulp.dest('./build/js'))
 });

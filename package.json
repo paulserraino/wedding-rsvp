@@ -22,5 +22,10 @@
     "gulp": "^3.8.11",
     "gulp-browserify": "^0.5.1",
     "gulp-less": "^3.0.3"
+  },
+  "dependencies": {
+    "backbone": "^1.2.0",
+    "jquery": "^2.1.4",
+    "underscore": "^1.8.3"
   }
 }
