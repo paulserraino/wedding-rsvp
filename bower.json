@@ -1,0 +1,21 @@
+{
+  "name": "jesusRSVP",
+  "version": "0.0.0",
+  "homepage": "https://github.com/paulserraino/wedding-rsvp",
+  "authors": [
+    "Paul Serraino"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/js/libs",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "fluidable": "~1.2.3",
+    "normalize.css": "~3.0.3"
+  }
+}
