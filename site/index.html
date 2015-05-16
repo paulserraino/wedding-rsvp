@@ -11,8 +11,10 @@
 <div class="fit-content">
   <section id="main-section" class="section">
     <article class="banner">
-      <h1 class="main-title">Christine &amp; Jesus</h1>
-      <p class="main-text">July 11, 2015 · Austin, Texas</p>
+      <h1 class="main-title fadeInUp">Christine &amp; Jesus</h1>
+      <h2 class="main-welcome">We're getting married!</h2>
+      <p class="main-text">Tying the knot July 11, 2015.</p>
+      <a class="rsvp-link" href="#rsvp-section">rsvp</a>
     </article>
   </section>
 </div>
@@ -36,17 +38,18 @@
   <article>
     <div class="form-container">
       <h2 class="form-title">RSVP</h2>
+      <!-- RSVP -->
       <form class="rsvp-form" role="form" method="POST">
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">Email*</label>
           <input type="text" name="email" id="email" class="form-control">
         </div>
         <div class="form-group">
-          <label for="first_name">First Name</label>
+          <label for="first_name">First Name*</label>
           <input type="text" name="first_name" id="first_name" class="form-control">
         </div>
         <div class="form-group">
-          <label for="last_name">Last Name</label>
+          <label for="last_name">Last Name*</label>
           <input type="text" name="last_name" id="last_name" class="form-control">
         </div>
         <div class="form-group">
@@ -73,6 +76,7 @@
           <button type="submit" class="submit-btn btn">SUBMIT</button>
         </div>
       </form>
+      <!-- -->
     </div>
   </article>  
 </section>
@@ -82,6 +86,8 @@
 function initialize() {
   var myLatlng = new google.maps.LatLng(30.467008,-97.952139);
   var mapOptions = {
+    scrollwheel: false,
+    mapTypeControl: false,
     zoom: 12,
     center: myLatlng,
     styles: [{featureType:"administrative",stylers:[{visibility:"on"}]},

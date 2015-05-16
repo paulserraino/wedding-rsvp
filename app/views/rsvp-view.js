@@ -1,4 +1,6 @@
 var Backbone = require('backbone');
+var $ = require('jquery');
+Backbone.$ = $;
 
 module.exports = Backbone.View.extend({
 	events: {
@@ -18,6 +20,7 @@ module.exports = Backbone.View.extend({
 }
 , submit: function (e) {
 		e.preventDefault();
+		this.clearErrors();
 
 		this.model.set({
 			email: this.$el.find(this.fieldMap.email).val()
@@ -29,11 +32,27 @@ module.exports = Backbone.View.extend({
 		})
 
 		if (!this.model.isValid()) {
-			return this.displayErrors(this.model.validationError);
+			return this.displayError(this.model.validationError);
 		}
 
 	}
-, displayErrors: function (errors) {
-		console.log(errors);
+
+, displayError: function (error, selector) {
+		selector = selector || '[name=":p"]'.replace(':p', error.prop);
+		var $el = this.$el.find(selector);
+		var $span = $('<span class="errors">').text(error.message);
+		var red = '#D91E18';
+
+		$el.addClass('errors');
+		$el.siblings('label').append($span);
+		$el.focus();
+
+		return this;
+	}
+
+, clearErrors: function() {
+		$('label > .errors').remove();
+		$('.errors').removeClass('errors');
+		return this;
 	}
 });

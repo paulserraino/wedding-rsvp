@@ -36,3 +36,27 @@
   outline: none;
   -webkit-appearance: none;
 }
+.errors {
+  border-color: #ff423c;
+}
+label > .errors {
+  color: #ff423c;
+  font-size: 13px;
+}
+.errors:focus {
+  outline: none !important;
+  border: 1px solid #ff423c;
+  box-shadow: 0 0 10px #ef6666;
+}
+.errors::-webkit-input-placeholder {
+  color: #ef6666;
+}
+.errors:-moz-placeholder {
+  color: #ef6666;
+}
+.errors::-moz-placeholder {
+  color: #ef6666;
+}
+.errors:-ms-input-placeholder {
+  color: #ef6666;
+}

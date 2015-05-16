@@ -35,28 +35,32 @@ module.exports = Backbone.Model.extend({
 		}
 	}
 	, validate: function (props, options) {
-		console.log('validating...', props)
-		for (var p in props) {
-			var s = this.schema[p];
-			var val = props[p];
+			for (var p in props) {
+				var s = this.schema[p];
+				var val = props[p];
+				var error = { prop: p };
 
-			if (s.types.indexOf(typeof props[p]) === -1) {
-				return p + ' is the wrong type';
-			}
+				if (s.types.indexOf(typeof props[p]) === -1) {
+					error.message = p + ' is the wrong type';
+					return error;
+				}
 
-			if (s.required && !val) {
-				return p.replace('_', ' ') + ' is required';
-			}
+				if (s.required && !val) {
+					error.message = p.replace('_', ' ') + ' is required';
+					return error;
+				}
 
-			if (s.min && val.toString().length < s.min) {
-				return p.replace('_', ' ') + ' should be greater than ' + s.min;
-			}
+				if (s.min && val.toString().length < s.min) {
+					error.message = p.replace('_', ' ') + ' should be greater than ' + s.min;
+					return error;
+				}
 
-			if (s.exp && !s.exp.test(val)) {
-				return 'invalid :p format'.replace(':p', p);
+				if (s.exp && !s.exp.test(val)) {
+					error.message = 'invalid :p format'.replace(':p', p);
+					return error;
+				}
 			}
 		}
-	}
 });
 },{"backbone":4,"underscore":7}],2:[function(require,module,exports){
 var $ = require('jQuery');
@@ -68,10 +72,24 @@ $(function () {
 		el: '.rsvp-form'
 	, model: new RSPV()
 	});
+
+	var scroll = function(el, ms){
+    var speed = (ms) ? ms : 600;
+    $('html,body').animate({
+        scrollTop: $(el).offset().top
+    }, speed);
+	};
+
+	$('.rsvp-link').on('click', function (e) {
+		e.preventDefault();
+		scroll(e.target.getAttribute('href'));
+	});
 });
 
 },{"../models/rsvp":1,"../views/rsvp-view":3,"jQuery":5}],3:[function(require,module,exports){
 var Backbone = require('backbone');
+var $ = require('jquery');
+Backbone.$ = $;
 
 module.exports = Backbone.View.extend({
 	events: {
@@ -91,6 +109,7 @@ module.exports = Backbone.View.extend({
 }
 , submit: function (e) {
 		e.preventDefault();
+		this.clearErrors();
 
 		this.model.set({
 			email: this.$el.find(this.fieldMap.email).val()
@@ -102,15 +121,31 @@ module.exports = Backbone.View.extend({
 		})
 
 		if (!this.model.isValid()) {
-			return this.displayErrors(this.model.validationError);
+			return this.displayError(this.model.validationError);
 		}
 
 	}
-, displayErrors: function (errors) {
-		console.log(errors);
+
+, displayError: function (error, selector) {
+		selector = selector || '[name=":p"]'.replace(':p', error.prop);
+		var $el = this.$el.find(selector);
+		var $span = $('<span class="errors">').text(error.message);
+		var red = '#D91E18';
+
+		$el.addClass('errors');
+		$el.siblings('label').append($span);
+		$el.focus();
+
+		return this;
+	}
+
+, clearErrors: function() {
+		$('label > .errors').remove();
+		$('.errors').removeClass('errors');
+		return this;
 	}
 });
-},{"backbone":4}],4:[function(require,module,exports){
+},{"backbone":4,"jquery":6}],4:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.0
 

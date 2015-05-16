@@ -34,26 +34,30 @@ module.exports = Backbone.Model.extend({
 		}
 	}
 	, validate: function (props, options) {
-		console.log('validating...', props)
-		for (var p in props) {
-			var s = this.schema[p];
-			var val = props[p];
+			for (var p in props) {
+				var s = this.schema[p];
+				var val = props[p];
+				var error = { prop: p };
 
-			if (s.types.indexOf(typeof props[p]) === -1) {
-				return p + ' is the wrong type';
-			}
+				if (s.types.indexOf(typeof props[p]) === -1) {
+					error.message = p + ' is the wrong type';
+					return error;
+				}
 
-			if (s.required && !val) {
-				return p.replace('_', ' ') + ' is required';
-			}
+				if (s.required && !val) {
+					error.message = p.replace('_', ' ') + ' is required';
+					return error;
+				}
 
-			if (s.min && val.toString().length < s.min) {
-				return p.replace('_', ' ') + ' should be greater than ' + s.min;
-			}
+				if (s.min && val.toString().length < s.min) {
+					error.message = p.replace('_', ' ') + ' should be greater than ' + s.min;
+					return error;
+				}
 
-			if (s.exp && !s.exp.test(val)) {
-				return 'invalid :p format'.replace(':p', p);
+				if (s.exp && !s.exp.test(val)) {
+					error.message = 'invalid :p format'.replace(':p', p);
+					return error;
+				}
 			}
 		}
-	}
 });

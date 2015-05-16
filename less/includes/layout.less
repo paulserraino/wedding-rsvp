@@ -1,3 +1,6 @@
+@secondary-font: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+@color-gold: #f9b862;
+
 #main-section {
   text-align: right;
   background-color: #eee;
@@ -11,18 +14,39 @@
 }
 
 .main-title {
-  padding-top: 40px;
   position: relative;
+  font-family: @secondary-font;
+  padding-top: 8%;
   font-size: 90px;
   color: #fff;
 }
+
+.main-welcome {
+  font-family: @secondary-font;
+  color: @color-gold;
+}
+
 .main-text {
-  font-size: 30px;
-  color: #f9b862;
+  font-family: @secondary-font;
+  font-weight: 100;
+  color: #fff;
+}
+
+.rsvp-link {
+  font-family: @secondary-font;
+  font-weight: 100;
+  color: #fff;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.rsvp-link:hover  {
+  color: @color-gold;
+  text-decoration: underline;
 }
 
 .banner {
-  background-color: rgba(8, 0, 26, 0.3);
+  background-color: rgba(8, 0, 26, 0.4);
   text-align: center;
   color: #FFF;
   height: 100%;

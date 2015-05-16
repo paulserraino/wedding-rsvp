@@ -10,17 +10,34 @@
   background-size: cover;
 }
 .main-title {
-  padding-top: 40px;
   position: relative;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 8%;
   font-size: 90px;
   color: #fff;
 }
-.main-text {
-  font-size: 30px;
+.main-welcome {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #f9b862;
 }
+.main-text {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  color: #fff;
+}
+.rsvp-link {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  color: #fff;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.rsvp-link:hover {
+  color: #f9b862;
+  text-decoration: underline;
+}
 .banner {
-  background-color: rgba(8, 0, 26, 0.3);
+  background-color: rgba(8, 0, 26, 0.4);
   text-align: center;
   color: #FFF;
   height: 100%;
