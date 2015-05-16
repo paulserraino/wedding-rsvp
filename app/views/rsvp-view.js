@@ -35,6 +35,14 @@ module.exports = Backbone.View.extend({
 			return this.displayError(this.model.validationError);
 		}
 
+		this.model.save(null, {
+			success: function () {
+				console.log('saved!')
+			}
+		, errors: function () {
+				console.log('failed')
+			}
+		});
 	}
 
 , displayError: function (error, selector) {
@@ -51,7 +59,7 @@ module.exports = Backbone.View.extend({
 	}
 
 , clearErrors: function() {
-		$('label > .errors').remove();
+		$('label > span.errors').remove();
 		$('.errors').removeClass('errors');
 		return this;
 	}
