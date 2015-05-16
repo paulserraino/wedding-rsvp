@@ -1,35 +1,33 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
 var path = require('path');
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
+var browserify = require('gulp-browserify');
+var webserver = require('gulp-webserver');
+var watch = require('gulp-watch');
  
 gulp.task('less', function () {
   return gulp.src('./less/**/*.less')
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
-    .pipe(gulp.dest('./public/build/css'))
-    .pipe(reload({ stream: true }))
+    .pipe(gulp.dest('./site/public/css'))
 });
 
-var browserify = require('gulp-browserify');
- 
 gulp.task('browserify', function() {
-    return gulp.src('./public/js/main.js')
+    return gulp.src('./app/pages/**/*.js')
         .pipe(browserify())
-        .pipe(gulp.dest('./build/js'))
+        .pipe(gulp.dest('./site/public/js'))
 });
 
-gulp.task('serve', ['less'], function() {
-  browserSync({
-    server: {
-      baseDir: '.'
-    }
-  });
-
-  gulp.watch('less/**/*.less', ['less']);
-  gulp.watch('js/**/*.js', ['browserify']);
+gulp.task('watch', function () {
+  gulp.watch('./js/**/*.js', ['browserify']);
+  gulp.watch('./less/**/*.less', ['less']);
 });
 
-gulp.task('default', ['less', 'browserify']);
+gulp.task('webserver', function() {
+return gulp.src('./site')
+    .pipe( webserver({ port: 8000}) );
+});
+
+gulp.task('serve', ['less', 'browserify', 'watch', 'webserver']);
+gulp.task('default', ['less', 'browserify', 'watch']);

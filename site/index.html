@@ -36,7 +36,7 @@
   <article>
     <div class="form-container">
       <h2 class="form-title">RSVP</h2>
-      <form id="rsvp-form" class="form" role="form" method="POST">
+      <form class="rsvp-form" role="form" method="POST">
         <div class="form-group">
           <label for="email">Email</label>
           <input type="text" name="email" id="email" class="form-control">
@@ -52,11 +52,11 @@
         <div class="form-group">
           <label for="reservation">Will you be there?*</label>
           <label>
-            <input type="radio" id="reservation" name="reservation" value="yes">
+            <input type="radio" id="reservation" name="reservation" value="true">
             Yes
           </label>
           <label>
-            <input type="radio" id="reservation" name="reservation" value="no">
+            <input type="radio" id="reservation" name="reservation" value="false">
             No
           </label>
         </div>
@@ -70,7 +70,7 @@
           <textarea name="message" id="message" class="form-control" cols="30" rows="10"></textarea>
         </div>
         <div class="form-group center">
-          <button class="submit-btn btn">SUBMIT</button>
+          <button type="submit" class="submit-btn btn">SUBMIT</button>
         </div>
       </form>
     </div>
@@ -82,8 +82,6 @@
 function initialize() {
   var myLatlng = new google.maps.LatLng(30.467008,-97.952139);
   var mapOptions = {
-    scrollwheel: false,
-    mapTypeControl: false,
     zoom: 12,
     center: myLatlng,
     styles: [{featureType:"administrative",stylers:[{visibility:"on"}]},
@@ -107,6 +105,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
  </script>
 
-  <script src="public/js/main.js"></script>  
+  <script src="public/js/rsvp.js"></script>  
 </body>
 </html>

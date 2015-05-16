@@ -18,10 +18,11 @@
   },
   "homepage": "https://github.com/paulserraino/wedding-rsvp",
   "devDependencies": {
-    "browser-sync": "^2.7.1",
     "gulp": "^3.8.11",
     "gulp-browserify": "^0.5.1",
-    "gulp-less": "^3.0.3"
+    "gulp-less": "^3.0.3",
+    "gulp-watch": "^4.2.4",
+    "gulp-webserver": "^0.9.1"
   },
   "dependencies": {
     "backbone": "^1.2.0",
