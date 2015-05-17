@@ -40,7 +40,7 @@ module.exports = Backbone.View.extend({
     this.model.save(null, {
       validate: false
     , success: function ( user ) {
-        conso.log('user ', user);
+        console.log('user ', user);
         var template = _.template(this_.template.html());
         $('body').prepend( template( { user: user } ) );
       }

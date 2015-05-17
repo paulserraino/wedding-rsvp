@@ -36,6 +36,7 @@ module.exports = Backbone.Model.extend({
   }
   , validate: function (props, options) {
       for (var p in props) {
+        if (!(p in this.schema)) break; //not good
         var s = this.schema[p];
         var val = props[p];
         var error = { prop: p };
@@ -68,9 +69,11 @@ var rspvView = require('../views/rsvp-view');
 var RSPV = require('../models/rsvp');
 window.jQuery = $;
 $(function () {
+
 	var view = new rspvView({
 		el: '.rsvp-form'
 	, model: new RSPV()
+	, template: $('#thankyou-template')
 	});
 
 	var scroll = function(el, ms){
@@ -88,6 +91,7 @@ $(function () {
 
 },{"../models/rsvp":1,"../views/rsvp-view":3,"jQuery":5}],3:[function(require,module,exports){
 var Backbone = require('backbone');
+var _ = require('underscore');
 var $ = require('jquery');
 Backbone.$ = $;
 
@@ -109,6 +113,7 @@ module.exports = Backbone.View.extend({
 }
 , submit: function (e) {
     e.preventDefault();
+    var this_ = this;
     this.clearErrors();
 
     this.model.set({
@@ -125,11 +130,14 @@ module.exports = Backbone.View.extend({
     }
 
     this.model.save(null, {
-      success: function () {
-        console.log('saved!')
+      validate: false
+    , success: function ( user ) {
+        console.log('user ', user);
+        var template = _.template(this_.template.html());
+        $('body').prepend( template( { user: user } ) );
       }
     , errors: function () {
-        console.log('failed')
+        alert('unable to submit rsvp :(');
       }
     });
   }
@@ -153,7 +161,7 @@ module.exports = Backbone.View.extend({
     return this;
   }
 });
-},{"backbone":4,"jquery":6}],4:[function(require,module,exports){
+},{"backbone":4,"jquery":6,"underscore":7}],4:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.0
 
