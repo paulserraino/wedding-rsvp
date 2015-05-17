@@ -1,4 +1,5 @@
 var Backbone = require('backbone');
+var _ = require('underscore');
 var $ = require('jquery');
 Backbone.$ = $;
 
@@ -20,6 +21,7 @@ module.exports = Backbone.View.extend({
 }
 , submit: function (e) {
     e.preventDefault();
+    var this_ = this;
     this.clearErrors();
 
     this.model.set({
@@ -36,11 +38,13 @@ module.exports = Backbone.View.extend({
     }
 
     this.model.save(null, {
-      success: function () {
-        console.log('saved!')
+      success: function ( user ) {
+        conso.log('user ', user);
+        var template = _.template(this_.template.html());
+        $('body').prepend( template( { user: user } ) );
       }
     , errors: function () {
-        console.log('failed')
+        alert('unable to submit rsvp :(');
       }
     });
   }
