@@ -2,6 +2,12 @@ var $ = require('jQuery');
 var rspvView = require('../views/rsvp-view');
 var RSPV = require('../models/rsvp');
 window.jQuery = $;
+
+$(document).on('click', '.thankyou-modal .btn-close', function (e) {
+	e.preventDefault();
+	$('.thankyou-modal').remove();
+});
+	
 $(function () {
 
 	var view = new rspvView({
@@ -21,4 +27,5 @@ $(function () {
 		e.preventDefault();
 		scroll(e.target.getAttribute('href'));
 	});
+
 });
