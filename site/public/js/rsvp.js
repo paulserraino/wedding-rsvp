@@ -17,20 +17,20 @@ module.exports = Backbone.Model.extend({
     , min: 2
     }
   , last_name: {
-      types: ['string'] 
+      types: ['string']
     , required: true
     , min: 2
     }
   , reservation: {
-      types: ['string']  
+      types: ['string']
     , required: true
     }
   , plus_one: {
-      types: ['string'] 
+      types: ['string']
     , required: false
     }
   , message: {
-      types: ['string'] 
+      types: ['string']
     , required: false
     }
   }
