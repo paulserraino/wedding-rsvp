@@ -35,6 +35,7 @@ module.exports = Backbone.Model.extend({
   }
   , validate: function (props, options) {
       for (var p in props) {
+        if (!(p in this.schema)) break; //not good
         var s = this.schema[p];
         var val = props[p];
         var error = { prop: p };
