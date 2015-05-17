@@ -1071,6 +1071,7 @@ label > .errors {
 .main-welcome {
   font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #f9b862;
+  backface-visibility: hidden;
 }
 .main-text {
   font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1083,6 +1084,7 @@ label > .errors {
   color: #fff;
   transition: all 0.3s;
   text-decoration: none;
+  font-size: 19px;
 }
 .rsvp-link:hover {
   color: #f9b862;
@@ -1172,6 +1174,58 @@ label > .errors {
   #main-section {
     background-image: url("../images/jc1.jpg");
   }
+}
+.thankyou-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 0, 26, 0.2);
+  z-index: 99;
+}
+.modal-content {
+  margin: 0 auto;
+  background-color: #fff;
+  width: 70%;
+  height: 75%;
+  background-image: url('/public/images/jc5.jpg');
+  background-size: cover;
+  border: 5px solid #fff;
+  min-height: 480px;
+  min-width: 290px;
+  max-width: 600px;
+}
+.thankyou-message {
+  margin-top: 60px;
+  background-color: rgba(8, 0, 26, 0.2);
+  padding: 5%;
+}
+.thankyou-message h2,
+.thankyou-message p,
+.thankyou-message li,
+.thankyou-message i,
+.thankyou-message a {
+  color: #fff;
+  font-weight: 500;
+}
+.thankyou-message li {
+  margin-top: 5px;
+}
+.thankyou-message i {
+  font-size: 20px;
+}
+.thankyou-message a > i:hover {
+  color: #f9b862;
+}
+.modal-content .btn-close {
+  position: relative;
+  background-color: transparent;
+  border: 2px solid #fff;
+  margin-top: 11%;
+  color: #fff;
+}
+.modal-content .btn-close:hover {
+  border-color: #222;
+  color: #222;
 }
 html,
 body {

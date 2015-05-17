@@ -10,13 +10,13 @@ gulp.task('less', function () {
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
-    .pipe(gulp.dest('./site/public/css'))
+    .pipe(gulp.dest('./public/css'))
 });
 
 gulp.task('browserify', function() {
     return gulp.src('./app/pages/**/*.js')
         .pipe(browserify())
-        .pipe(gulp.dest('./site/public/js'))
+        .pipe(gulp.dest('./public/js'))
 });
 
 gulp.task('watch', function () {
@@ -25,7 +25,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('webserver', function() {
-return gulp.src('./site')
+return gulp.src('.')
     .pipe( webserver({ port: 8000}) );
 });
 
