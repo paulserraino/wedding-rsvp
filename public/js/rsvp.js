@@ -115,9 +115,8 @@ module.exports = Backbone.View.extend({
   , plus_one: '#plus_one'
   , message: '#message'
   }
-  
+
 , initialize: function (options) {
-    console.log('init')
     this.template = options.template;
   }
 
@@ -142,7 +141,6 @@ module.exports = Backbone.View.extend({
     this.model.save(null, {
       validate: false
     , success: function ( user ) {
-        console.log('user ', user);
         var template = _.template( this_.template.html() );
         $('body').prepend( template( { user: user.toJSON() } ) );
       }
