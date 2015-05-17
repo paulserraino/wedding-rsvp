@@ -16,9 +16,12 @@ module.exports = Backbone.View.extend({
   , plus_one: '#plus_one'
   , message: '#message'
   }
-, initialize: function () {
-  console.log('init')
-}
+  
+, initialize: function (options) {
+    console.log('init')
+    this.template = options.template;
+  }
+
 , submit: function (e) {
     e.preventDefault();
     var this_ = this;
@@ -41,8 +44,8 @@ module.exports = Backbone.View.extend({
       validate: false
     , success: function ( user ) {
         console.log('user ', user);
-        var template = _.template(this_.template.html());
-        $('body').prepend( template( { user: user } ) );
+        var template = _.template( this_.template.html() );
+        $('body').prepend( template( { user: user.toJSON() } ) );
       }
     , errors: function () {
         alert('unable to submit rsvp :(');
