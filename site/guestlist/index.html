@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guest List</title>
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <h1>Guest List</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email</td>
+          <td>RSVP</td>
+        </tr>   
+      </thead>
+      <tbody id="guestlist"></tbody>
+    </table>
+    <span class="loading">loading...</span>
+  </div>
+
+  <script type="text/x-template" id="guestlist-tmpl">
+  <% guests.forEach(function (g, i) { %>
+    <tr>
+      <td><%= i +1 %></td>
+      <td><%= g.doc.first_name %></td>
+      <td><%= g.doc.last_name %></td>
+      <td><%= decodeURIComponent(g.doc.email) %></td>
+      <td>
+      <%if (g.doc.reservation === "true") { %> 
+        <span class="yes">yes</span>
+      <%} else { %>
+        <span class="no">no</span>
+      <% } %>
+      </td> 
+    </tr>
+  <% }); %>
+  </script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+  <script>
+  (function ($) {
+  //https://jesuswedding.iriscouch.com/weddingrsvp/_all_docs?include_docs=true
+
+      function getDB() {
+        return $.ajax({
+          url: "https://paulserraino.cloudant.com/jesuswedding/_all_docs?include_docs=true",
+          type: "GET",
+          dataType: "jsonp"
+        });
+      }
+
+      $(document).ready(function () {
+
+        var tmpl = null;
+        getDB().done(function (data) {
+          $(".loading").remove();
+           tmpl = _.template($("#guestlist-tmpl").html());
+           $("#guestlist").html(tmpl({ guests: data.rows }));
+        });
+
+      });
+
+  })(jQuery);
+  </script>
+</body>
+</html>

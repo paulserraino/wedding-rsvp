@@ -2,6 +2,11 @@
 
 wedding rspv site for my bro Jesus Franco
 
+```
+npm install
+npm start
+```
+
 ##Setup
 1. download [git](http://git-scm.com/downloads)
 2. fork project (see upper right-hand side of this page)

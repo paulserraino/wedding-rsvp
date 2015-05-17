@@ -1,0 +1,42 @@
+@color-yellow: #f9b862;
+
+.btn {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 1em 2.5em;
+  border-width: 0;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+
+  transition: all 0.5s ease;
+}
+
+.btn.btn-small {
+  padding: .8em 1.3em;
+}
+
+.btn-primary {
+  border: 2px solid;
+  border-color: @color-yellow;
+  color: @color-yellow;
+  background-color: #FFF;
+}
+
+.btn-primary:hover {
+  background-color: @color-yellow;
+  color: #fff;
+}
+
+.btn-submit {
+  color: #fff;
+  background-color: @color-yellow;
+  border-color: @color-yellow;
+  text-transform: uppercase;
+}
+
+.btn-submit:hover {
+  color: #333;
+}
