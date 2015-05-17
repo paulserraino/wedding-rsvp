@@ -11,6 +11,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  box-shadow: none;
 }
 
 .main-title {
@@ -42,7 +43,6 @@
 
 .rsvp-link:hover  {
   color: @color-gold;
-  text-decoration: underline;
 }
 
 .banner {
@@ -59,24 +59,55 @@
   max-width: 1800px;
 }
 
-#map {
-  margin: 0 auto;
-  max-width: 700px;
-  height: 300px;
+.wedding-info {
+
+  .info-datetime {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .info-time {
+    display: block;
+  }
+
+  .address li {
+    margin-top: 10px;
+  }
+
+  a { text-decoration: none; }
+
+  a > i {
+    font-size: 20px;
+    border-bottom: 1px solid;
+    transition: all 0.3s;
+  }
+
+  a > i:hover { 
+    color: @color-gold;
+  }
 }
 
-#wedding-info {
-  padding: 18px 0px 10px 0px;
+#map {
+  margin: 0 auto;
+  max-width: 300px;
+  height: 300px;
 }
 
 .section {
   height: 500px;
   border-bottom: 1px solid #EEEEEE;
+  box-shadow: 1px 1px 1px 1px #333;
 }
 
 .section:nth-child(3) {
   background-color: #DDDDDD;
   height: 700px;
+  padding-bottom: 20px;
+}
+
+.footer {
+  background-color: #fafafa;
 }
 
 .center {
@@ -87,4 +118,26 @@
 .table {
   max-width: 800px;
   margin: 0 auto;
+}
+
+/**
+*   Vertically center nodes
+*/
+.v-wrap{
+  height: 100%;
+  white-space: nowrap;
+  text-align: center;
+}
+.v-wrap:before{
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  margin-right: -.25em;
+  height: 100%; 
+}
+.v-box{
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
 }

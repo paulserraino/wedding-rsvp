@@ -22,19 +22,8 @@
 .form-group {
   margin-top: 10px;
 }
-.submit-btn {
-  color: #fff;
-  background-color: #f9b862;
-  border-color: #f9b862;
-  display: inline-block;
-  width: auto;
-  height: auto;
-  padding: 1em 2.5em;
-  border-width: 0;
+.form-title {
   text-align: center;
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
 }
 .errors {
   border-color: #ff423c;
