@@ -4,28 +4,28 @@ var RSPV = require('../models/rsvp');
 window.jQuery = $;
 
 $(document).on('click', '.thankyou-modal .btn-close', function (e) {
-	e.preventDefault();
-	$('.thankyou-modal').remove();
+  e.preventDefault();
+  $('.thankyou-modal').remove();
 });
-	
+  
 $(function () {
 
-	var view = new rspvView({
-		el: '.rsvp-form'
-	, model: new RSPV()
-	, template: $('#thankyou-template')
-	});
+  var view = new rspvView({
+    el: '.rsvp-form'
+  , model: new RSPV()
+  , template: $('#thankyou-template')
+  });
 
-	var scroll = function(el, ms){
+  var scroll = function(el, ms){
     var speed = (ms) ? ms : 600;
     $('html,body').animate({
         scrollTop: $(el).offset().top
     }, speed);
-	};
+  };
 
-	$('.rsvp-link').on('click', function (e) {
-		e.preventDefault();
-		scroll(e.target.getAttribute('href'));
-	});
+  $('.rsvp-link').on('click', function (e) {
+    e.preventDefault();
+    scroll(e.target.getAttribute('href'));
+  });
 
 });
