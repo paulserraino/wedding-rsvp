@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Guest List</title>
-  <link rel="stylesheet" href="../css/bootstrap.css">
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
 
   <div class="container">
     
     <h1>Guest List</h1>
-    <table class="table table-striped">
+    <table class="table table-striped table-responsive">
       <thead>
         <tr>
           <td>#</td>
@@ -19,6 +18,8 @@
           <td>Last Name</td>
           <td>Email</td>
           <td>RSVP</td>
+          <td>Plus One</td>
+          <td>Message</td>
         </tr>   
       </thead>
       <tbody id="guestlist"></tbody>
@@ -33,13 +34,9 @@
       <td><%= g.doc.first_name %></td>
       <td><%= g.doc.last_name %></td>
       <td><%= decodeURIComponent(g.doc.email) %></td>
-      <td>
-      <%if (g.doc.reservation === "true") { %> 
-        <span class="yes">yes</span>
-      <%} else { %>
-        <span class="no">no</span>
-      <% } %>
-      </td> 
+      <td><%= g.doc.reservation %><td>
+      <td><%= g.doc.plus_one %><td>
+      <td><%= g.doc.message %><td>
     </tr>
   <% }); %>
   </script>
