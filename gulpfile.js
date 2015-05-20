@@ -4,12 +4,14 @@ var path = require('path');
 var browserify = require('gulp-browserify');
 var webserver = require('gulp-webserver');
 var watch = require('gulp-watch');
+var cssmin = require('gulp-cssmin');
  
 gulp.task('less', function () {
   return gulp.src('./less/**/*.less')
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
+    .pipe(cssmin())
     .pipe(gulp.dest('./build/css'))
 });
 
@@ -29,5 +31,6 @@ return gulp.src('.')
     .pipe( webserver({ port: 8000}) );
 });
 
-gulp.task('serve', ['less', 'browserify', 'watch', 'webserver']);
-gulp.task('default', ['less', 'browserify', 'watch']);
+var defaultTasks = ['less', 'browserify'];
+gulp.task('default', defaultTasks);
+gulp.task('serve', defaultTasks.concat(['watch', 'webserver']));

@@ -1,5 +1,1 @@
-@media (max-width: 700px) {
-  #main-section {
-    background-image: url("../images/jc1.jpg");
-  }
-}
+@media (max-width:700px){#main-section{background-image:url(../images/jc1.jpg)}}
