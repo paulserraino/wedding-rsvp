@@ -10,13 +10,13 @@ gulp.task('less', function () {
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
-    .pipe(gulp.dest('./public/css'))
+    .pipe(gulp.dest('./build/css'))
 });
 
 gulp.task('browserify', function() {
     return gulp.src('./app/pages/**/*.js')
         .pipe(browserify())
-        .pipe(gulp.dest('./public/js'))
+        .pipe(gulp.dest('./build/js'))
 });
 
 gulp.task('watch', function () {
