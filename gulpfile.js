@@ -5,6 +5,7 @@ var browserify = require('gulp-browserify');
 var webserver = require('gulp-webserver');
 var watch = require('gulp-watch');
 var cssmin = require('gulp-cssmin');
+var uglify = require('gulp-uglify');
  
 gulp.task('less', function () {
   return gulp.src('./less/**/*.less')
@@ -18,6 +19,7 @@ gulp.task('less', function () {
 gulp.task('browserify', function() {
     return gulp.src('./app/pages/**/*.js')
         .pipe(browserify())
+        .pipe(uglify())
         .pipe(gulp.dest('./build/js'))
 });
 
