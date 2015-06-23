@@ -8,23 +8,37 @@
 <body>
 
   <div class="container">
-    
-    <h1>Guest List</h1>
-    <table class="table table-striped table-responsive">
-      <thead>
-        <tr>
-          <td>#</td>
-          <td>First Name</td>
-          <td>Last Name</td>
-          <td>Email</td>
-          <td>RSVP</td>
-          <td>Plus One</td>
-          <td>Message</td>
-        </tr>   
-      </thead>
-      <tbody id="guestlist"></tbody>
-    </table>
-    <span class="loading">loading...</span>
+
+    <div class="login-page">
+      <h1>Admin</h1>
+      <form class="admin-form">
+        <div class="form-group">
+          <input type="password" class="admin-password form-control">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn">login</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="guest-list hide">
+      <h1>Guest List</h1>
+      <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>RSVP</td>
+            <td>Plus One</td>
+            <td>Message</td>
+          </tr>
+        </thead>
+        <tbody id="guestlist"></tbody>
+      </table>
+      <span class="loading">loading...</span>
+    </div>
   </div>
 
   <script type="text/x-template" id="guestlist-tmpl">
@@ -45,26 +59,56 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
   <script>
   (function ($) {
-  //https://jesuswedding.iriscouch.com/weddingrsvp/_all_docs?include_docs=true
 
-      function getDB() {
-        return $.ajax({
-          url: "https://paulserraino.cloudant.com/jesuswedding/_all_docs?include_docs=true",
-          type: "GET",
-          dataType: "jsonp"
-        });
+    $(document).ready(main);
+
+    function main () {
+      var store = 'fw_login';
+
+      if(getStore(store) === "true") {
+        return renderGuestList();
       }
 
-      $(document).ready(function () {
-
-        var tmpl = null;
-        getDB().done(function (data) {
-          $(".loading").remove();
-           tmpl = _.template($("#guestlist-tmpl").html());
-           $("#guestlist").html(tmpl({ guests: data.rows }));
-        });
-
+      $('.admin-form').on('submit', function (e) {
+        e.preventDefault();
+        if ($('.admin-password').val() === 'wedding') {
+          setStore(store, true);
+          return renderGuestList();
+        }
       });
+    }
+
+    function setStore(k, v) {
+      if (!localStorage) return null;
+      return localStorage.setItem(k,v);
+    }
+
+    function getStore (k) {
+      if (!localStorage) return null;
+      return localStorage.getItem(k);
+    }
+
+    function renderGuestList () {
+      $('.login-page').addClass('hide');
+      $('.guest-list').removeClass('hide');
+      guestList();
+    }
+
+    function guestList() {
+
+      //https://jesuswedding.iriscouch.com/weddingrsvp/_all_docs?include_docs=true
+
+      $.ajax({
+        url: "https://paulserraino.cloudant.com/jesuswedding/_all_docs?include_docs=true",
+        type: "GET",
+        dataType: "jsonp"
+      }).done(function (data) {
+        $(".loading").remove();
+        var tmpl = _.template($("#guestlist-tmpl").html());
+        $("#guestlist").html(tmpl({ guests: data.rows }));
+      });
+
+    }
 
   })(jQuery);
   </script>
