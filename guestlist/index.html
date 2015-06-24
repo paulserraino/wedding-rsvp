@@ -9,6 +9,14 @@
     font-size: 17px;
   }
 
+  .email-list {
+    display: none;
+    word-wrap: break-word;
+    padding: 5px;
+    background-color: #F9F9F9;
+    border: 1px solid #eee;
+  }
+
   </style>
 </head>
 <body>
@@ -34,6 +42,12 @@
     <div class="guest-list hide">
       <h1>Guest List</h1>
       <div id="total-guests">Total guests: <span class="total"></span></div>
+      <div>
+        <a href="#" class="email-list-toggle">email list <i class="email-list-icon glyphicon glyphicon-chevron-up"></i></a>
+        <div class="email-list">
+          <p></p>
+        </div>
+      </div>
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
@@ -80,7 +94,7 @@
       var store = 'fw_login';
 
       if(getStore(store) === "true") {
-        return renderGuestList();
+        renderGuestList();
       }
 
       $('.admin-form').on('submit', function (e) {
@@ -90,6 +104,15 @@
           return renderGuestList();
         }
       });
+
+      $('.email-list-toggle').on('click', function (e) {
+        e.preventDefault();
+
+        $('.email-list-icon').toggleClass('glyphicon-chevron-up')
+        $('.email-list-icon').toggleClass('glyphicon-chevron-down')
+        $('.email-list').slideToggle();
+      });
+
     }
 
     function setStore(k, v) {
@@ -127,6 +150,10 @@
         }, data.total_rows );
 
         $('.total').text(count);
+
+        var emails = data.rows.map(function (r) { return r.doc.email; });
+
+        $('.email-list p').html(emails.join(', ' ));
 
         var tmpl = Handlebars.compile($("#guestlist-tmpl").html());
         $("#guestlist").html(tmpl({ guests: data.rows }));
